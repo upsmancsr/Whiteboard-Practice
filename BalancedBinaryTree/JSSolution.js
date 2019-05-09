@@ -23,6 +23,11 @@ class BinaryTreeNode {
 }
 
 // Recursive solution:
+const checkBalanced = (rootNode) => {
+
+    return (maxDepth(rootNode) - minDepth(rootNode) === 0); // return true if max depth === min depth, false if not
+
+  };
 
 // Iterative solution?
 
