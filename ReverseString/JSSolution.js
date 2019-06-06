@@ -40,7 +40,12 @@ reverseString4 = string => {
     return string.split("").reduce((rev, char)=> char + rev, ''); 
 }
 
-// Option 5: Recursion
+// Option 5: Recursion using substr()
+// Note on substr():
+// * syntax is substr(start, length), 
+// * where start is the starting index 
+// * and length is the number of characters to extract
+// ** length is optional; by default substr() extracts characters to the end of the string
 reverseString5 = string => {
     if (string === "") {
         return string;
