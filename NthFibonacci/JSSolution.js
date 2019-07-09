@@ -46,23 +46,28 @@
 // Solution using recursion and memo, with separate function for calculating fib
 
 function fib(n) {
+    // Initialize cache to hold calculated fib values
     let cache = {};
 
+    // fibMemo() takes n and checks if there is a value in cache at index n.
+    // if no value, fibRecurse is used to recursively calculate the value.
+    // fibMemo() returns value:
     function fibMemo(n) {
-        let value = cache[n];
-        // if there is no value at cache[n]:
-        if (!value) {
-            value = fibRecurse(n);
-            cache[n] = value;
+        
+        let value = cache[n];       // Get the value at index n in cache
+        
+        if (!value) {               // if there is no value at cache[n]
+            value = fibRecurse(n);  // use fibRecurse defined below to calculate value
+            cache[n] = value;       // store value at index n in cache
         }
-        return value;
+        return value;               // return value
     }
 
     function fibRecurse(n) {
         if (n < 2) {
             return n;
         } // else...
-        return fibMemo(n - 2) + fibMemo(n - 1);
+        return fibMemo(n - 2) + fibMemo(n - 1); // use fibMemo() to calculate and use cache if value already caculated
     }
 
     return fibMemo(n);
