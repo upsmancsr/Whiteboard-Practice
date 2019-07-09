@@ -46,7 +46,7 @@
 // Solution using recursion and memo, with separate function for calculating fib
 
 function fib(n) {
-    let cache = Array(n);
+    let cache = {};
 
     function fibMemo(n) {
         let value = cache[n];
