@@ -41,7 +41,9 @@ function addTen(n) {
 
 // Generalizable memoize function:
     // takes a function as arg and returns a memoized function
-const memoize = (fn) => {
+    
+// const memoize = (fn) => { // This line or the next both work    
+function memoize(fn) {
     let cache = {};
     return (...args) => {       // taking destructured args array
         let n = args[0];        // taking only first arg
@@ -51,7 +53,7 @@ const memoize = (fn) => {
             console.log('result found in cache');
             return cache[n];    // return the value/arg found at cache[n]
         } 
-        
+
         // if cache[n] doesn't exists, call fn(n), store the result at cache[n], and return the result:
         else {
             console.log('calculating result');
