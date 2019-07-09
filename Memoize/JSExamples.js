@@ -4,12 +4,12 @@ function addTen(n) {
 }
 
 // memoizedAddTen function specific to addTen:
-function memoizedAddTen(n) {
+const memoizedAddTen = () => {
     let cache = {};
 
-    function f(n) {
+    return (n) => {
         if (n in cache) {
-            console.log('result found in cache')
+            console.log('result found in cache');
             return cache[n];
         } else {
             console.log('calculating result');
@@ -18,9 +18,10 @@ function memoizedAddTen(n) {
             return result;
         }
     }
-    return f(n);
+
 }
 
-//const newAdd = memoizedAddTen();
-console.log(memoizedAddTen(9));
-console.log(memoizedAddTen(9));
+const newAdd = memoizedAddTen();
+
+console.log(newAdd(9));
+console.log(newAdd(9));
