@@ -45,17 +45,19 @@ const memoize = (fn) => {
     let cache = {};
     return (...args) => {       // taking destructured args array
         let n = args[0];        // taking only first arg
+
         // if cache[n] exists, return the value/arg at that index:
         if (n in cache) {
             console.log('result found in cache');
             return cache[n];    // return the value/arg found at cache[n]
         } 
+        
         // if cache[n] doesn't exists, call fn(n), store the result at cache[n], and return the result:
         else {
             console.log('calculating result');
             let result = fn(n); // call the function fn(n) passed to memoize(fn) to get result
             cache[n] = result;  // store the result at cache[n]
-            return result;
+            return result;      // return the result
         }
     }
 }
